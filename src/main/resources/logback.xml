@@ -1,0 +1,17 @@
+<Configuration>
+<Appenders>
+    <RollingFile name="RollingFile" fileName="logs/hippodrome.log"
+                 filePattern="logs/hippodrome.%d{yyyy-MM-dd}.log">
+        <PatternLayout>
+            <Pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</Pattern>
+        </PatternLayout>
+        <DefaultRolloverStrategy>
+            <Delete basePath="logs" maxDepth="1">
+                <IfFileName glob="hippodrome.*.log"/>
+                <IfLastModified age="7d"/>
+            </Delete>
+        </DefaultRolloverStrategy>
+    </RollingFile>
+</Appenders>
+</Configuration>
+
